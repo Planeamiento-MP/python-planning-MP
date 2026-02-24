@@ -26,7 +26,7 @@ def main():
         if not SCHEDULES:
             logger.error("No hay tareas configuradas en SCHEDULES")
             sys.exit(1)
-        cron_expr, job_name = SCHEDULES[1]
+        cron_expr, job_name = SCHEDULES[0]
         job_fn = get_job(job_name)
         if not job_fn:
             logger.error("Tarea desconocida: %s. Disponibles: %s", job_name, list_jobs())

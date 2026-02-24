@@ -45,8 +45,24 @@ def origen_inventario():
         logger.error("Error en origen_inventario: %s", e, exc_info=True)
 
 
-@register("pruebas_Linux")
-def pruebas_Linux():
+@register("pruebas_web_scraping")
+def pruebas_web_scraping():
+    """Ejecuta el flujo de Codigo (Origen de Inventario): genera Resultado_YYYYMMDD.txt e inserta en PostgreSQL."""
+    logger.info("Ejecutando: origen_inventario (flujo Codigo -> BD)")
+    try:
+        # Ejecutar Main.py de Codigo en el mismo proceso para que base = carpeta Codigo y encuentre config/db
+        codigo_dir = Path(__file__).resolve().parent.parent / "pruebas_Linux"
+        main_py = codigo_dir / "Prueba_paginas.py"
+        if not main_py.exists():
+            logger.error("No se encuentra origen_inventario/Prueba_paginas.py en %s", main_py)
+            return
+        runpy.run_path(str(main_py), run_name="__Prueba_paginas__")
+        logger.info("Prueba envio correos completado: datos almacenados en Prueba_paginas.")
+    except Exception as e:
+        logger.error("Error en Prueba envio correos: %s", e, exc_info=True)
+
+@register("pruebas_envio_correo")
+def pruebas_envio_correo():
     """Ejecuta el flujo de Codigo (Origen de Inventario): genera Resultado_YYYYMMDD.txt e inserta en PostgreSQL."""
     logger.info("Ejecutando: origen_inventario (flujo Codigo -> BD)")
     try:
@@ -54,9 +70,9 @@ def pruebas_Linux():
         codigo_dir = Path(__file__).resolve().parent.parent / "pruebas_Linux"
         main_py = codigo_dir / "Prueba envio correos.py"
         if not main_py.exists():
-            logger.error("No se encuentra origen_inventario/Main.py en %s", main_py)
+            logger.error("No se encuentra Prueba envio correos.py en %s", main_py)
             return
         runpy.run_path(str(main_py), run_name="__Prueba envio correos__")
-        logger.info("Prueba envio correos completado: datos almacenados en resultado_Prueba envio correos.")
+        logger.info("Prueba envio correos completado: datos almacenados en Prueba envio correoss.")
     except Exception as e:
         logger.error("Error en Prueba envio correos: %s", e, exc_info=True)

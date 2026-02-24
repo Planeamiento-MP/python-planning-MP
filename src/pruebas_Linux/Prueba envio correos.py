@@ -7,8 +7,10 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
+import logging
+
 _log = logging.getLogger("Codigo.Prueba envio correos")
-_log.info("Cargo paquetes")
+_log.info("Carga de Librerias")
 #Ejecucion de reportes de Hidraulica
 data = {
     "Numero": [101, 102, 103, 104, 105, 106, 107, 108],
@@ -168,3 +170,4 @@ _log.info("Declaro funcion")
 #Hidraulica componentes
 enviar_correo(df_resultado_ltvar, "FRIO" , "FRIO")
 _log.info("Ejecuto funcion")
+_log.info("Fin")
