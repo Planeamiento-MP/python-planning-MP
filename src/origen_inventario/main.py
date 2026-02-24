@@ -441,6 +441,7 @@ archivos = [
 
 # Rutas en la misma carpeta Codigo
 carpeta_destino = base / "Datas"
+_log.info("ruta guardada de base", base)
 ruta_excel = base / "Datas"
 
 # Crear la carpeta si no existe
