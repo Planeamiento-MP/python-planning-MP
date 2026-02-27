@@ -88,7 +88,7 @@ def enviar_correo(df_resultado_ltvar, nombre_linea ,nombre_linea_descripcion):
     clave = "gSDvbs%#$"
     #destinatario = "VentasGHTP@marco.com.pe"
     #destinatario = ["planeamiento.inventarios@marco.com.pe","aprado@marco.com.pe","acampos@marco.com.pe","rhuamani@marco.com.pe"]
-    destinatario = ["rhuamani@marco.com.pe","rhuamani@marco.com.pe"]
+    destinatario = ["planeamiento.inventarios@marco.com.pe","sflores@marco.com.pe"]
     asunto = "SEM "+ numero_semana + ": Reporte PRUEBA "+nombre_linea
     # Copia a otras personas
     #cc = ["greynac@marco.com.pe","planeamiento.inventarios@marco.com.pe","aprado@marco.com.pe"]  # Ajusta los correos según tu necesidad
